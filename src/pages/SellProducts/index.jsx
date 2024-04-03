@@ -203,7 +203,7 @@ const index = () => {
           </Typography>
           <Box className="bg-slate-100">
             <Box component={"form"}>
-              <FormGroup className="lg:w-[50rem] w-auto lg:mx-auto mx-[2rem] flex flex-col gap-y-5  p-4">
+              <FormGroup className="lg:w-[50rem] lg:mx-auto flex justify-center flex-col gap-y-5">
                 <Box className="flex gap-5">
                   <TextField
                     id="outlined-basic"
