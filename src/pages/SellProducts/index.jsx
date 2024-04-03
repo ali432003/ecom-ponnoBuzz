@@ -135,6 +135,11 @@ const index = () => {
   // Submit Handler
   const submit = (e) => {
     e.preventDefault();
+    try {
+      
+    } catch (error) {
+      
+    }
     if (
       !dataFields.title ||
       !dataFields.category ||
@@ -180,6 +185,7 @@ const index = () => {
     } catch (e) {
       console.error("Error adding document: ", e);
       ToastAlert(e.code, "error");
+      setloader(false)
     } finally {
       setloader(false);
     }

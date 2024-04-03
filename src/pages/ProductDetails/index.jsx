@@ -188,7 +188,6 @@ const Index = () => {
                 type="number"
                 defaultValue={1}
                 className="border border-[#64748b] rounded-lg"
-                autoFocus
                 min={1}
                 max={5}
                 onChange={(e) => {

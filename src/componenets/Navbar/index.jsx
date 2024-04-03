@@ -57,7 +57,7 @@ function DrawerAppBar(props) {
 
     
     setcartItem([...tempArr]);
-  };
+  }
   // console.log(cartItem.length)
 
   useEffect(() => {

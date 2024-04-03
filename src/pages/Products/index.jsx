@@ -60,7 +60,9 @@ const Index = (props) => {
       setdbloader(false);
     }
   };
-  // console.log("ProdCollection", prodId);
+
+
+  console.log("ProdCollection", ProdCollection);
   const filteration = () => {
     const filteredCategories = {};
     // Merge realData and ProdCollection into one array if ProdCollection is available
