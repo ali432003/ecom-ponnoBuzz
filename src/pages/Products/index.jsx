@@ -56,7 +56,7 @@ const Index = (props) => {
       setdbloader(false);
       setProdCollection([...tempArr]);
     } catch (error) {
-      ToastAlert("Error in fetching Data", "error");
+      // ToastAlert("Error in fetching Data", "error");
       setdbloader(false);
     }
   };
