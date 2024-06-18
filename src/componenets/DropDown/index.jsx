@@ -14,7 +14,7 @@ const Index = () => {
     axios
       .get("https://dummyjson.com/products/categories?limit=100")
       .then((res) => {
-        console.log("Fetched categories:", res.data);
+        // console.log("Fetched categories:", res.data);
         setCate(res.data);
         setLoad(false);
       })
@@ -36,7 +36,7 @@ const Index = () => {
       }
       return filterFn(category.slug);
     });
-    console.log("Filtered categories:", filtered);
+    // console.log("Filtered categories:", filtered);
     return filtered;
   };
 
