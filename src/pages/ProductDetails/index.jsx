@@ -9,6 +9,7 @@ import { db } from "../../firebase";
 import Box from "@mui/material/Box";
 import EcommerceCard from "../../componenets/Cards";
 import Typography from "@mui/material/Typography";
+import { CircularProgress } from "@mui/material";
 
 const Index = () => {
   const [prod, setProd] = useState();
@@ -102,15 +103,15 @@ const Index = () => {
     }
 
     try {
-      const docRef = await addDoc(collection(db, "cart"), {
+      await addDoc(collection(db, "cart"), {
         value: itemDetail,
       });
       // console.log("Document written with ID: ", docRef.id);
       setLoad(false);
       ToastAlert("Item Added", "success");
     } catch (e) {
-      // console.error("Error adding document: ", e)
-      ToastAlert(e.message, "error");
+      console.error("Error adding document: ", e)
+      // ToastAlert(e.message, "error");
       setLoad(false);
     }
   };
@@ -140,7 +141,7 @@ const Index = () => {
   useEffect(() => {
     if (relatedItem) {
       // Ensure relatedItems are properly set
-      console.log(relatedItem); // Check if relatedItems are fetched correctly
+      // console.log(relatedItem); // Check if relatedItems are fetched correctly
     }
   }, [relatedItem]);
 
@@ -165,24 +166,28 @@ const Index = () => {
             <div className="single-pro-image">
               <img src={mainImgSrc} width={650} height={650} alt="" />
               <div className="small-img-group" style={{ marginTop: "2rem" }}>
-                {(prod?.images || uProd?.images).map((image, index) => (
-                  <div key={index} className="small-img-col">
-                    <img
-                      src={image}
-                      width={250}
-                      height={250}
-                      className="ssmall-img"
-                      alt=""
-                      onClick={() => handleImageClick(index)}
-                    />
-                  </div>
-                ))}
+                {prod?.images || uProd?.images ? (
+                  (prod?.images || uProd?.images).map((image, index) => (
+                    <div key={index} className="small-img-col">
+                      <img
+                        src={image}
+                        width={250}
+                        height={250}
+                        className="ssmall-img"
+                        alt=""
+                        onClick={() => handleImageClick(index)}
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <CircularProgress />
+                )}
               </div>
             </div>
             <div className="single-pro-details">
               <h6>Home / {prod?.category || uProd?.category}</h6>
               <h4>{prod?.title || uProd?.title}</h4>
-              <h2>{(prod?.price  || uProd?.price ) + "$"}</h2>
+              <h2>{(prod?.price || uProd?.price) + "$"}</h2>
 
               <input
                 type="number"
